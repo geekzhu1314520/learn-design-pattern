@@ -31,9 +31,94 @@ package com.watermelon.state {
     + onEnterState() {abstract}
   }
 }
+package com.watermelon.state2 {
+  class App {
+    + App()
+    + main(args : String[]) {static}
+  }
+  class CapeMario {
+    - instance : CapeMario {static}
+    - CapeMario()
+    + getInstance() : CapeMario {static}
+    + getName() : State
+    + meetMonster(stateMachine : MarioStateMachine)
+    + obtainCape(stateMachine : MarioStateMachine)
+    + obtainFireFlower(stateMachine : MarioStateMachine)
+    + obtainMushRoom(stateMachine : MarioStateMachine)
+  }
+  class FireMario {
+    - instance : FireMario {static}
+    - FireMario()
+    + getInstance() : FireMario {static}
+    + getName() : State
+    + meetMonster(stateMachine : MarioStateMachine)
+    + obtainCape(stateMachine : MarioStateMachine)
+    + obtainFireFlower(stateMachine : MarioStateMachine)
+    + obtainMushRoom(stateMachine : MarioStateMachine)
+  }
+  interface IMario {
+    + getName() : State {abstract}
+    + meetMonster(MarioStateMachine) {abstract}
+    + obtainCape(MarioStateMachine) {abstract}
+    + obtainFireFlower(MarioStateMachine) {abstract}
+    + obtainMushRoom(MarioStateMachine) {abstract}
+  }
+  class MarioStateMachine {
+    - currentState : IMario
+    - score : int
+    + MarioStateMachine()
+    + getCurrentState() : IMario
+    + getScore() : int
+    + meetMonster()
+    + obtainCape()
+    + obtainFireFlower()
+    + obtainMushRoom()
+    + setCurrentState(currentState : IMario)
+    + setScore(score : int)
+  }
+  class SmallMario {
+    - instance : SmallMario {static}
+    - SmallMario()
+    + getInstance() : SmallMario {static}
+    + getName() : State
+    + meetMonster(stateMachine : MarioStateMachine)
+    + obtainCape(stateMachine : MarioStateMachine)
+    + obtainFireFlower(stateMachine : MarioStateMachine)
+    + obtainMushRoom(stateMachine : MarioStateMachine)
+  }
+  enum State {
+    + CAPE {static}
+    + FIRE {static}
+    + SMALL {static}
+    + SUPER {static}
+    - value : int
+    + getValue() : int
+    + valueOf(name : String) : State {static}
+    + values() : State[] {static}
+  }
+  class SuperMario {
+    - instance : SuperMario {static}
+    - SuperMario()
+    + getInstance() : SuperMario {static}
+    + getName() : State
+    + meetMonster(stateMachine : MarioStateMachine)
+    + obtainCape(stateMachine : MarioStateMachine)
+    + obtainFireFlower(stateMachine : MarioStateMachine)
+    + obtainMushRoom(stateMachine : MarioStateMachine)
+  }
+}
+MarioStateMachine -->  "-currentState" IMario
 AngryState -->  "-mammoth" Mammoth
+SmallMario -->  "-instance" SmallMario
+CapeMario -->  "-instance" CapeMario
+FireMario -->  "-instance" FireMario
 Mammoth -->  "-state" State
+SuperMario -->  "-instance" SuperMario
 PeacefulState -->  "-mammoth" Mammoth
 AngryState ..|> State 
 PeacefulState ..|> State 
+CapeMario ..|> IMario 
+FireMario ..|> IMario 
+SmallMario ..|> IMario 
+SuperMario ..|> IMario 
 @enduml

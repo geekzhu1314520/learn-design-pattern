@@ -29,7 +29,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.watermelon.state.App</mainClass>
+                                    <mainClass>com.watermelon.state2.App</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>
