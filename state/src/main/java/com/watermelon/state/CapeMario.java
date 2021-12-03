@@ -1,23 +1,23 @@
-package com.watermelon.state2;
+package com.watermelon.state;
 
 /**
  * @author: zhujiashuai
  * @date: 2021/12/3
  */
-public class SuperMario implements IMario {
+public class CapeMario implements IMario {
 
-    private static final SuperMario instance = new SuperMario();
+    private static final CapeMario instance = new CapeMario();
 
-    private SuperMario() {
+    private CapeMario() {
     }
 
-    public static SuperMario getInstance() {
+    public static CapeMario getInstance() {
         return instance;
     }
 
     @Override
     public State getName() {
-        return State.SUPER;
+        return State.CAPE;
     }
 
     @Override
